@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+    <head>
+
+        <title>Interface Login</title>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"></script>
+        <script src="storage.js"></script>
+
+        <style>
+
+            #title{
+
+                color: cornflowerblue;
+                text-align: center;
+                font-size: large;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            #selector{
+
+                color: cornflowerblue;
+                text-align: center;
+                font-size: large;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            #login{
+
+                color: cornflowerblue;
+                text-align: center;
+                font-size: large;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        
+        <div id="title">
+
+            <br>
+            <br>
+            <h1>Welcome.  Please sign in.</h1>
+            <h1>_______________________</h1>
+        </div>
+
+        <div>
+
+            <form action="" id="login">
+
+                <br>
+                <input type="radio" id="doc" name="radio" value="Doctor">
+                <label for="doc">Doctor</label>
+                <br>
+                <input type="radio" id="nur" name="radio" value="Nurse">
+                <label for="nur">Nurse</label>
+                <br>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="user">
+                <br>
+                <br>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+
+        
+
+    </body>
+</html>
