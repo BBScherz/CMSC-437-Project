@@ -70,10 +70,9 @@ function signout(){
     localStorage.removeItem("logged");
     user = "";
     db = 0;
-
-    /*Debugging for system
+    
     document.getElementById("nur").checked = false;
     document.getElementById("doc").checked = false;
     document.getElementById("name").value = "";
-    */
+    
 }
