@@ -4,7 +4,7 @@ function login() {
     const name = document.getElementById("name").value;
 
     if (!nurse.checked && !doctor.checked) {
-        alert("Please selct a role to log in.");
+        alert("Please select a role to log in.");
         return;
     }
 
