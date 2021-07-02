@@ -1,3 +1,13 @@
+const user = JSON.parse(localStorage.getItem("user"));
+const url = window.location.pathname;
+const filename = url.substring(url.lastIndexOf("/") + 1);
+
+if (filename !== "login_page.html" && !user) {
+    window.location.href = "login_page.html";
+} else if (filename === "login_page.html" && user) {
+    window.location.href = "main_page.html";
+}
+
 function login() {
     const nurse = document.getElementById("nurse");
     const doctor = document.getElementById("doctor");
@@ -14,6 +24,11 @@ function login() {
     }
 
     const role = nurse.checked ? nurse.value : doctor.value;
-    const user = { name, role };
-    localStorage.setItem("user", JSON.stringify(user));
+    const newUser = { name, role };
+    localStorage.setItem("user", JSON.stringify(newUser));
+}
+
+function logout() {
+    localStorage.removeItem("user");
+    window.location.href = "login_page.html";
 }
