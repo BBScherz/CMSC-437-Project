@@ -32,6 +32,11 @@ body {
     flex-direction: column;
 }
 
+label {
+    font-weight: bold;
+    margin: 0;
+}
+
 #role-field {
     align-items: center;
     display: flex;
@@ -45,7 +50,6 @@ body {
     margin-bottom: 20px;
 }
 
-label {
-    font-weight: bold;
-    margin: 0;
+#submit-field input {
+    width: 100%;
 }
