@@ -1,0 +1,40 @@
+#title{
+
+    color: cornflowerblue;
+    background-color: aliceblue;
+    text-align: left;
+    font-size: large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#personal{
+
+    color: cornflowerblue;
+    text-align: center;
+    font-size:medium;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+label{
+    color:black;
+    text-decoration: none;
+}
+#conditions{
+    color: cornflowerblue;
+    background-color: aliceblue;
+    text-align: center;
+    font-size:medium;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#medication{
+    color: cornflowerblue;
+    text-align: center;
+    font-size:medium;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#vitals{
+    color: cornflowerblue;
+    background-color: aliceblue;
+    text-align: center;
+    font-size:medium;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
