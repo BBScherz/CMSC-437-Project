@@ -1,40 +1,51 @@
-#title{
-
+#title {
     color: cornflowerblue;
     background-color: aliceblue;
     text-align: left;
     font-size: large;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#personal{
+.medical-list-item {
+    padding: 10px 0 20px 0;
+}
 
+#personal {
     color: cornflowerblue;
     text-align: center;
     font-size:medium;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-label{
+
+#personal .col-md {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
     color:black;
     text-decoration: none;
 }
-#conditions{
+
+#conditions {
     color: cornflowerblue;
     background-color: aliceblue;
     text-align: center;
     font-size:medium;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-#medication{
+
+#condition-list,
+#medication-list {
+    padding-bottom: 20px;
+}
+
+#medication {
     color: cornflowerblue;
     text-align: center;
     font-size:medium;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-#vitals{
+
+#vitals {
     color: cornflowerblue;
     background-color: aliceblue;
     text-align: center;
     font-size:medium;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
