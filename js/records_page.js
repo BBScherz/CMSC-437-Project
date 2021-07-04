@@ -5,12 +5,12 @@ if (!patient) {
 
 // Get a formatted HTML element for a given condition
 const getCondition = condition => (
-    `<div id=${condition} class="condition">${condition}</div>`
+    `<div id="${condition}" class="condition">${condition}</div>`
 );
 
 // Get a formatted HTML element for a given medication
 const getMedication = medication => (
-    `<div id=${medication} class="medication">${medication}</div>`
+    `<div id="${medication}" class="medication">${medication}</div>`
 );
 
 const setRealtimeVitals = () => {
@@ -39,6 +39,20 @@ $(document).ready(function() {
     patient.medications.forEach(medication => {
         $("#medication-list").append(getMedication(medication));
     });
+
+    if (user.role === "Doctor") {
+        $("#cond-container").append(`
+            <input type="text" id="condition-name" name="condition-name">
+            <input type="button" value="Add" id="add-condition">
+            <input type="button" value="Remove" id="delete-condition">
+        `);
+
+        $("#med-container").append(`
+            <input type="text" id="medication-name" name="medication-name">
+            <input type="button" value="Add" id="add-medication">
+            <input type="button" value="Remove" id="delete-medication">
+        `);
+    }
 
     // Mimic realtime vital data
     setRealtimeVitals();
