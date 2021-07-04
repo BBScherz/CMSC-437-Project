@@ -1,0 +1,32 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#title {    
+    color: cornflowerblue;
+    background-color: aliceblue;
+    text-align: left;
+    font-size: large;
+}
+
+#welcome-text {
+    padding-top: 20px;
+    text-align: center;
+}
+
+#patient-list {
+    width: 70%;
+    align-self: center;
+}
+
+.patient {
+    border-bottom: 1px solid gray;
+    padding: 20px;
+}
+
+.panels {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+}

@@ -1,30 +1,7 @@
-/* Run before page render and reroute if no patient data is present
-const patient = JSON.parse(localStorage.getItem("patient"));
+// Run before page render and reroute if no patient data is present
 if (!patient) {
-    console.log('here');
     window.location.href = "main_page.html";
 }
-*/
-
-// Mock patient data. Make available from Main Page probably.
-const patient = {
-    id: "0",
-    name: "Connor",
-    age: "20",
-    gender: "Male",
-    height: "5 ft. 9 in.",
-    weight: "155 lbs.",
-    birthday: "12-12-2000",
-    conditions: [
-        "Myopia",
-        "Vitreous floaters",
-        "Rhinitis"
-    ],
-    medications: [
-        "Ibuprofen, 200mg",
-        "Acetaminophen, 200mg"
-    ]
-};
 
 // Get a formatted HTML element for a given condition
 const getCondition = condition => (
@@ -37,8 +14,8 @@ const getMedication = medication => (
 );
 
 const setRealtimeVitals = () => {
-    const oxygenLevel = (96 + Math.random()).toPrecision(4);
-    const heartRate = 130 + (Math.round(Math.random() * 10));
+    const oxygenLevel = (96 + (-2 + Math.random() * 4)).toPrecision(4);
+    const heartRate = 130 + (-10 + Math.round(Math.random() * 20));
 
     $("#blood-oxygen").text(`Blood Oxygen Level: ${oxygenLevel}%`);
     $("#heartrate").text(`Heart Rate: ${heartRate} BPM`);
@@ -110,11 +87,11 @@ $(document).ready(function() {
 
 // Save patient data to localStorage
 $(window).on('beforeunload', () => {
-    const patients = JSON.parse(localStorage.getItem("patients"));
-    patients = patients.map(({ id }, i) => (
+    let nextPatients = JSON.parse(localStorage.getItem("patients"));
+    nextPatients = patients.map(({ id }, i) => (
         id === patient.id 
             ? patient 
             : patients[i]
     ));
-    localStorage.setItem("patients", JSON.stringify(patients));
+    localStorage.setItem("patients", JSON.stringify(nextPatient));
 });

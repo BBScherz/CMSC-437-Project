@@ -10,7 +10,6 @@
 }
 
 #personal {
-    color: cornflowerblue;
     text-align: center;
     font-size:medium;
 }
@@ -26,7 +25,6 @@ label {
 }
 
 #conditions {
-    color: cornflowerblue;
     background-color: aliceblue;
     text-align: center;
     font-size:medium;
@@ -38,13 +36,11 @@ label {
 }
 
 #medication {
-    color: cornflowerblue;
     text-align: center;
     font-size:medium;
 }
 
 #vitals {
-    color: cornflowerblue;
     background-color: aliceblue;
     text-align: center;
     font-size:medium;
