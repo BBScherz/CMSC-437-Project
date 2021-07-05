@@ -20,6 +20,11 @@ body {
     align-self: center;
 }
 
+#signout {
+    float: right;
+    font-size: medium;
+}
+
 .patient {
     border-bottom: 1px solid gray;
     padding: 20px;

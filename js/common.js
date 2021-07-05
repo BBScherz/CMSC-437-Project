@@ -62,10 +62,12 @@ if (!patients) {
         conditions: [
             "Heart Disease",
             "Type II Diabetes",
+            "Severe Hemophilia A"
         ],
         medications: [
             "Insulin, 116.81 units",
-            "Ibuprofen, 400mg"
+            "Ibuprofen, 400mg",
+            "Hemlibra"
         ],
     }];
     localStorage.setItem("patients", JSON.stringify(mockPatients));
