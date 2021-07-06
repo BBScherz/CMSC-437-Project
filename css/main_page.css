@@ -1,6 +1,9 @@
 body {
     display: flex;
     flex-direction: column;
+    background-image: url(../assets/main_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #title {    
