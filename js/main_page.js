@@ -7,7 +7,9 @@ const getPatientListItem = ({ id, name }) => (`
             </div>
             <div class="list-item-panel">
                 <div class="heartrate">Heart Rate:</div>
+                <div class="blood-pressure">Blood Pressure:</div>
                 <div class="blood-oxygen">Blood Oxygen Level:</div>
+                <div class="blood-carbondioxide">Blood Carbon Dioxide Level:</div>
             </div>
             <div class="list-item-panel">
                 <button onclick="visitCrisis(${id})">Crisis Response</button>
@@ -32,14 +34,25 @@ const visitRecords = patientId => {
 };
 
 const setRealtimeVitals = () => {
+    $(".heartrate").each(function() {
+        const heartRate = 80 + (-10 + Math.round(Math.random() * 20));
+        $(this).text(`Heart Rate: ${heartRate} BPM`);
+    });
+
+    $(".blood-pressure").each(function() {
+        const systolic = 130 + Math.round(Math.random() * 10);
+        const diastolic = 85 + Math.round(Math.random() * 10);
+        $(this).text(`Blood Pressure: ${systolic} mmHg / ${diastolic} mmHg`);
+    });
+
     $(".blood-oxygen").each(function() {
         const oxygenLevel = (96 + (-2 + Math.random() * 4)).toPrecision(4);
         $(this).text(`Blood Oxygen Level: ${oxygenLevel}%`);
     });
 
-    $(".heartrate").each(function() {
-        const heartRate = 86 + (-10 + Math.round(Math.random() * 20));
-        $(this).text(`Heart Rate: ${heartRate} BPM`);
+    $(".blood-carbondioxide").each(function() {
+        const carbonDioxideLevel = (40 + (-15 + Math.random() * 30)).toPrecision(4);
+        $(this).text(`Blood Carbon Dioxide Level: ${carbonDioxideLevel} mmHg`);
     });
 };
 
