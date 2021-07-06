@@ -2,6 +2,9 @@ const getPatientListItem = ({ id, name }) => (`
     <div class="patient">
         <h3>Patient ${id}: ${name}</h3>
         <div class="panels">
+            <div id="gif">
+                <img src="https://i.gifer.com/QVGh.gif" alt="Patient Heart Beat" width="200" height="80">
+            </div>
             <div class="list-item-panel">
                 <div class="heartrate">Heart Rate:</div>
                 <div class="blood-oxygen">Blood Oxygen Level:</div>
@@ -35,7 +38,7 @@ const setRealtimeVitals = () => {
     });
 
     $(".heartrate").each(function() {
-        const heartRate = 130 + (-10 + Math.round(Math.random() * 20));
+        const heartRate = 86 + (-10 + Math.round(Math.random() * 20));
         $(this).text(`Heart Rate: ${heartRate} BPM`);
     });
 };
