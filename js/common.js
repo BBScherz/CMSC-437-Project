@@ -71,7 +71,7 @@ if (!patients) {
         ],
     }];
 
-    for (let p of patients) {   //Add starting threshold values to the mock patients
+    for (let p of mockPatients) {   //Add starting threshold values to the mock patients
         p.minimumO2Threshold = null;
         p.minimumHeartrateThreshold = null;
         p.maximumHeartrateThreshold = null;
