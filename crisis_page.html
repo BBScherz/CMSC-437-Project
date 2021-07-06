@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Crisis Response Page</title>
+        <title>Crisis Response</title>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,13 +12,49 @@
 
         <!--jQuery import-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+        
         <!--Our scripts / stylesheets-->
         <link href="css/crisis_page.css" rel="stylesheet">
         <script src="js/common.js"></script>
         <script src="js/crisis_page.js"></script>
     </head>
     <body>
-        <p>Crisis Response Page</p>
+        <div id="title">
+            <h1>Crisis Response</h1>
+        </div>
+        <div id="threshold1" class="threshold-list-item">
+            <div id= "threshold1-container" class="container">
+                <div class="row">
+                    <h2>Minimum Blood Oxygen Threshold</h2>
+                    <span id= "blood-oxygen-threshold"></span>
+                </div>
+            </div>
+        </div>
+        <div id="threshold2" class="threshold-list-item">
+            <div id = "threshold2-container" class="container">
+                <div class="row">
+                    <h2>Minimum Heart Rate Threshold</h2>
+                    <span id= "minimum-heartrate-threshold"></span>
+                </div>
+            </div>
+        </div>
+        <div id="threshold3" class="threshold-list-item">
+            <div id = "threshold3-container" class="container">
+                <div class="row">
+                    <h2>Maximum Heart Rate Threshold</h2>
+                    <span id= "maximum-heartrate-threshold"></span>
+                </div>
+            </div>
+        </div>
+        <div id="threshold4" class="threshold-list-item">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md">
+                        <input type="button" value="Save new thresholds" id="add-minimum-heartrate-threshold">
+                    </div>
+                
+                </div>
+            </div>
+        </div>
     </body>
 </html>
