@@ -15,10 +15,15 @@ const getMedication = medication => (
 
 const setRealtimeVitals = () => {
     const oxygenLevel = (96 + (-2 + Math.random() * 4)).toPrecision(4);
-    const heartRate = 130 + (-10 + Math.round(Math.random() * 20));
-
-    $("#blood-oxygen").text(`Blood Oxygen Level: ${oxygenLevel}%`);
+    const heartRate = 80 + (-10 + Math.round(Math.random() * 20));
+    const systolic = 130 + Math.round(Math.random() * 10);
+    const diastolic = 85 + Math.round(Math.random() * 10);
+    const carbonDioxideLevel = (40 + (-15 + Math.random() * 30)).toPrecision(4);
+    
     $("#heartrate").text(`Heart Rate: ${heartRate} BPM`);
+    $("#blood-pressure").text(`Blood Pressure: ${systolic} mmHg / ${diastolic} mmHg`);
+    $("#blood-oxygen").text(`Blood Oxygen Level: ${oxygenLevel}%`);
+    $("#blood-carbondioxide").text(`Blood Carbon Dioxide Level: ${carbonDioxideLevel} mmHg`);
 };
 
 $(document).ready(function() {
@@ -107,5 +112,5 @@ $(window).on('beforeunload', () => {
             ? patient 
             : patients[i]
     ));
-    localStorage.setItem("patients", JSON.stringify(nextPatient));
+    localStorage.setItem("patients", JSON.stringify(nextPatients));
 });
