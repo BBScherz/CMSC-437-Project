@@ -1,0 +1,47 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background-image: url(../assets/main_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#title {    
+    color: cornflowerblue;
+    background-color: aliceblue;
+    text-align: left;
+    font-size: large;
+}
+
+#welcome-text {
+    padding-top: 20px;
+    text-align: center;
+}
+
+#patient-list {
+    width: 70%;
+    align-self: center;
+}
+
+#crisis {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    font-size: medium;
+}
+
+#signout {
+    float: right;
+    font-size: medium;
+}
+
+.patient {
+    border-bottom: 1px solid gray;
+    padding: 20px;
+}
+
+.panels {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+}

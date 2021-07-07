@@ -1,0 +1,54 @@
+#title {
+    color: cornflowerblue;
+    background-color: aliceblue;
+    text-align: left;
+    font-size: large;
+}
+
+.medical-list-item {
+    padding: 10px 0 20px 0;
+}
+
+#personal {
+    text-align: center;
+    font-size:medium;
+}
+
+#personal .col-md {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color:black;
+    text-decoration: none;
+}
+
+#conditions {
+    background-color: aliceblue;
+    text-align: center;
+    font-size:medium;
+}
+
+#condition-list,
+#medication-list {
+    padding-bottom: 20px;
+}
+
+#medications {
+    text-align: center;
+    font-size:medium;
+}
+
+#vitals {
+    background-color: aliceblue;
+    text-align: center;
+    font-size:medium;
+}
+
+#xray {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    font-size: medium;
+}
