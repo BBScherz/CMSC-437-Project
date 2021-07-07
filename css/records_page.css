@@ -45,3 +45,10 @@ label {
     text-align: center;
     font-size:medium;
 }
+
+#xray {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    font-size: medium;
+}
