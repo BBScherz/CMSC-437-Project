@@ -13,12 +13,12 @@ const getMedication = medication => (
     `<div id="${medication}" class="medication">${medication}</div>`
 );
 
-const setRealtimeVitals = () => {
-    const oxygenLevel = (96 + (-2 + Math.random() * 4)).toPrecision(4);
-    const heartRate = 80 + (-10 + Math.round(Math.random() * 20));
-    const systolic = 130 + Math.round(Math.random() * 10);
-    const diastolic = 85 + Math.round(Math.random() * 10);
-    const carbonDioxideLevel = (40 + (-15 + Math.random() * 30)).toPrecision(4);
+const getRealtimeVitals = () => {
+    const oxygenLevel = patient.oxygenLevel;
+    const heartRate = patient.heartRate;
+    const systolic = patient.systolic;
+    const diastolic = patient.diastolic;
+    const carbonDioxideLevel = patient.carbonDioxideLevel;
     
     $("#heartrate").text(`Heart Rate: ${heartRate} BPM`);
     $("#blood-pressure").text(`Blood Pressure: ${systolic} mmHg / ${diastolic} mmHg`);
@@ -60,8 +60,8 @@ $(document).ready(function() {
     }
 
     // Mimic realtime vital data
-    setRealtimeVitals();
-    setInterval(setRealtimeVitals, 5000);
+    getRealtimeVitals();
+    setInterval(getRealtimeVitals, 5000);
 
     $("#add-condition").click(function () {
         const condition = $("#condition-name").val();

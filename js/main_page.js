@@ -33,25 +33,30 @@ const visitRecords = patientId => {
     window.location.href = "records_page.html";
 };
 
-const setRealtimeVitals = () => {
+const getRealtimeVitals = () => {
+    let patient_counter = 0;    //To keep track of which patient in the list is being updated. Not the best solution but works as long as the patients are rendered in the same order in html
     $(".heartrate").each(function() {
-        const heartRate = 80 + (-10 + Math.round(Math.random() * 20));
+        const heartRate = patients[patient_counter].heartRate;
+        patient_counter++;
         $(this).text(`Heart Rate: ${heartRate} BPM`);
     });
-
+    patient_counter = 0;
     $(".blood-pressure").each(function() {
-        const systolic = 130 + Math.round(Math.random() * 10);
-        const diastolic = 85 + Math.round(Math.random() * 10);
+        const systolic = patients[patient_counter].systolic;
+        const diastolic = patients[patient_counter].diastolic;
+        patient_counter++;
         $(this).text(`Blood Pressure: ${systolic} mmHg / ${diastolic} mmHg`);
     });
-
+    patient_counter = 0;
     $(".blood-oxygen").each(function() {
-        const oxygenLevel = (96 + (-2 + Math.random() * 4)).toPrecision(4);
+        const oxygenLevel = patients[patient_counter].oxygenLevel;
+        patient_counter++;
         $(this).text(`Blood Oxygen Level: ${oxygenLevel}%`);
     });
-
+    patient_counter = 0;
     $(".blood-carbondioxide").each(function() {
-        const carbonDioxideLevel = (40 + (-15 + Math.random() * 30)).toPrecision(4);
+        const carbonDioxideLevel = patients[patient_counter].carbonDioxideLevel;
+        patient_counter++;
         $(this).text(`Blood Carbon Dioxide Level: ${carbonDioxideLevel} mmHg`);
     });
 };
@@ -63,6 +68,6 @@ $(document).ready(() => {
         $("#patient-list").append(getPatientListItem(item));
     });
 
-    setRealtimeVitals();
-    setInterval(setRealtimeVitals, 5000);
+    getRealtimeVitals();
+    setInterval(getRealtimeVitals, 5000);
 });

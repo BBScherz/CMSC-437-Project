@@ -1,8 +1,8 @@
 // Try to fetch user from localStorage, get the visited file
 const user = JSON.parse(localStorage.getItem("user"));
 
-const patients = JSON.parse(localStorage.getItem("patients"));
-const patient = JSON.parse(localStorage.getItem("patient"));
+var patients = JSON.parse(localStorage.getItem("patients"));
+var patient = JSON.parse(localStorage.getItem("patient"));
 
 const url = window.location.pathname;
 const filename = url.substring(url.lastIndexOf("/") + 1);
@@ -77,7 +77,15 @@ if (!patients) {
         p.maximumHeartrateThreshold = null;
     }
     localStorage.setItem("patients", JSON.stringify(mockPatients));
+    syncPatientData();
 }
+
+//Begin realtime vitals updates
+if (!patients[0].heartRate) {    //only force a vitals refresh if the values are uninitialized
+    console.log("Manually initialized vitals");
+    setRealtimeVitals();
+}
+setInterval(setRealtimeVitals, 5000);
 
 // Get checked role & name, create user object for localStorage
 function login() {
@@ -100,6 +108,30 @@ function login() {
     localStorage.setItem("user", JSON.stringify(newUser));
 }
 
+function setRealtimeVitals() {
+    // console.log("Updating vitals")
+    for (let p of patients) {
+        p.heartRate = 80 + (-10 + Math.round(Math.random() * 20));
+        p.systolic = 130 + Math.round(Math.random() * 10);
+        p.diastolic = 85 + Math.round(Math.random() * 10);
+        p.oxygenLevel = (96 + (-2 + Math.random() * 4)).toPrecision(4);
+        p.carbonDioxideLevel = (40 + (-15 + Math.random() * 30)).toPrecision(4);
+    }
+
+    if (patient) {
+        patient = patients.find(x => x.id === patient.id);  //Update data for the current patient if he exists on the page
+    }
+    syncPatientData()
+};
+
+function syncPatientData() { //Sync data for both current patient and patient array, pushing it to localStorage then pulling the data back to the vars
+    localStorage.setItem("patients", JSON.stringify(patients));
+    localStorage.setItem("patient", JSON.stringify(patient));
+    patients = JSON.parse(localStorage.getItem("patients"));
+    patient = JSON.parse(localStorage.getItem("patient"));
+    
+
+}
 // Remove user from localStorage, redirect
 function logout() {
     localStorage.removeItem("user");
