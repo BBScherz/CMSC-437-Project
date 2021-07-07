@@ -107,10 +107,10 @@ $(document).ready(function() {
 // Save patient data to localStorage
 $(window).on('beforeunload', () => {
     let nextPatients = JSON.parse(localStorage.getItem("patients"));
-    nextPatients = patients.map(({ id }, i) => (
+    nextPatients = nextPatients.map(({ id }, i) => (
         id === patient.id 
             ? patient 
-            : patients[i]
+            : nextPatients[i]
     ));
     localStorage.setItem("patients", JSON.stringify(nextPatients));
 });
