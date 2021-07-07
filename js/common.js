@@ -79,6 +79,7 @@ if (!patients) {
         p.inCrisis = false;
     }
     localStorage.setItem("patients", JSON.stringify(mockPatients));
+    loadPatientData();
     savePatientData();
 }
 
