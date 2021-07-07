@@ -24,6 +24,10 @@ label {
     text-decoration: none;
 }
 
+#back {
+    float: right;
+}
+
 #conditions {
     background-color: aliceblue;
     text-align: center;
