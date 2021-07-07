@@ -109,3 +109,12 @@ $(window).on('beforeunload', () => {
     ));
     localStorage.setItem("patients", JSON.stringify(nextPatient));
 });
+
+function open_xray(){
+
+    var num_xray = Math.floor(Math.random() * 4);
+    switch(num_xray){
+        case 0:
+            window.open("C:/Users/Brian Scherzo/Desktop/CMSC 437/Project Code/CMSC-437-Project/assets/chest_x.jpeg")
+    }
+}
