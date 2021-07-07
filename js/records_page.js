@@ -112,7 +112,7 @@ $(window).on('beforeunload', () => {
             ? patient 
             : nextPatients[i]
     ));
-    localStorage.setItem("patients", JSON.stringify(nextPatient));
+    localStorage.setItem("patients", JSON.stringify(nextPatients));
 });
 
 function open_xray(){
