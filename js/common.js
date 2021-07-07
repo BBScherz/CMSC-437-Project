@@ -138,15 +138,28 @@ function simCrisis(){
         patients[patient].heartRate -= 20;
         savePatientData();
         if(patients[patient].heartRate > patients[patient].maximumHeartrateThreshold || patients[patient].heartRate < patients[patient].minimumHeartrateThreshold){
-            sfx.play();
             alert(patients[patient].name + " is in cardiac distress!  Click the 'OK' button to assist them!");
+            sfx.play();
+            setTimeout(function(){
+                alert(patients[patient].name + "'s heart rate will stabilize in just a moment.");
+            },2000);
+            setTimeout(function(){
+                alert("Vital signs normal.");
+            },2000);
         }
     }else{
         patients[patient].oxygenLevel -= 8.0;
         savePatientData();
         if(patients[patient].oxygenLevel < patients[patient].minimumO2Threshold){  
+            alert(patients[patient].name + "'s oxygen levels are dangerously low!  Click the 'OK' button below to assist them!");  
             sfx.play();
-            alert(patients[patient].name + "'s oxygen levels are dangerously low!  Click the 'OK' button below to assist them!")  
+            setTimeout(function(){
+                alert(patients[patient].name + "'s oxygen levels will stabilize in just a moment.");
+            },2000);
+            setTimeout(function(){
+                alert("Vital signs normal.");
+            },2000);
+
         }
     }
 }
