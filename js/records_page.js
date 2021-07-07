@@ -122,11 +122,15 @@ function open_xray(){
     switch(num_xray){
         case 0:
             window.open("assets/chest_x.jpeg");
+            break;
         case 1:
             window.open("assets/hand_x.jpg");
+            break;
         case 2:
             window.open("assets/head_x.jpg");
+            break;
         case 3:
             window.open("assets/leg_x.jpeg");
+            break;
     }
 }
