@@ -77,7 +77,7 @@ if (!patients) {
         p.maximumHeartrateThreshold = null;
     }
     localStorage.setItem("patients", JSON.stringify(mockPatients));
-    syncPatientData();
+    savePatientData();
 }
 
 //Begin realtime vitals updates
@@ -121,17 +121,18 @@ function setRealtimeVitals() {
     if (patient) {
         patient = patients.find(x => x.id === patient.id);  //Update data for the current patient if he exists on the page
     }
-    syncPatientData()
+    savePatientData();
 };
 
-function syncPatientData() { //Sync data for both current patient and patient array, pushing it to localStorage then pulling the data back to the vars
+function savePatientData() { //Write data to browser localStorage
     localStorage.setItem("patients", JSON.stringify(patients));
     localStorage.setItem("patient", JSON.stringify(patient));
+}
+function loadPatientData() { //Load data from browser localStorage
     patients = JSON.parse(localStorage.getItem("patients"));
     patient = JSON.parse(localStorage.getItem("patient"));
-    
-
 }
+
 // Remove user from localStorage, redirect
 function logout() {
     localStorage.removeItem("user");
