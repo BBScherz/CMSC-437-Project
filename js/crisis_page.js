@@ -24,17 +24,16 @@ $(document).ready(function() {
     }
 
     $("#add-blood-oxygen-threshold").click(function () {
-        patient.minimumO2Threshold = $("#blood-oxygen-threshold-new").val();
+        patient.minimumO2Threshold = Number.parseFloat($("#blood-oxygen-threshold-new").val());
         updateThresholdDisplays();
     });
     $("#add-minimum-heartrate-threshold").click(function () {
-        patient.minimumHeartrateThreshold = $("#minimum-heartrate-threshold-new").val();
+        patient.minimumHeartrateThreshold = Number.parseFloat($("#minimum-heartrate-threshold-new").val());
         updateThresholdDisplays();
     });
     $("#add-maximum-heartrate-threshold").click(function () {
-        patient.maximumHeartrateThreshold = $("#maximum-heartrate-threshold-new").val();
+        patient.maximumHeartrateThreshold = Number.parseFloat($("#maximum-heartrate-threshold-new").val());
         updateThresholdDisplays();
-        writePatients();
     });
 
 });
@@ -52,6 +51,7 @@ $(window).on('beforeunload', writePatients);
 
 //write data of current patient to the patient storage
 function writePatients() {
+    localStorage.setItem("patient", JSON.stringify(patient));
     let nextPatients = JSON.parse(localStorage.getItem("patients"));
     nextPatients = patients.map(({ id }, i) => (
         id === patient.id 
