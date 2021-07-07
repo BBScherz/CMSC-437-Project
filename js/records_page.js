@@ -13,12 +13,17 @@ const getMedication = medication => (
     `<div id="${medication}" class="medication">${medication}</div>`
 );
 
-const setRealtimeVitals = () => {
-    const oxygenLevel = (96 + (-2 + Math.random() * 4)).toPrecision(4);
-    const heartRate = 130 + (-10 + Math.round(Math.random() * 20));
-
-    $("#blood-oxygen").text(`Blood Oxygen Level: ${oxygenLevel}%`);
+const getRealtimeVitals = () => {
+    const oxygenLevel = patient.oxygenLevel;
+    const heartRate = patient.heartRate;
+    const systolic = patient.systolic;
+    const diastolic = patient.diastolic;
+    const carbonDioxideLevel = patient.carbonDioxideLevel;
+    
     $("#heartrate").text(`Heart Rate: ${heartRate} BPM`);
+    $("#blood-pressure").text(`Blood Pressure: ${systolic} mmHg / ${diastolic} mmHg`);
+    $("#blood-oxygen").text(`Blood Oxygen Level: ${oxygenLevel}%`);
+    $("#blood-carbondioxide").text(`Blood Carbon Dioxide Level: ${carbonDioxideLevel} mmHg`);
 };
 
 $(document).ready(function() {
@@ -55,8 +60,8 @@ $(document).ready(function() {
     }
 
     // Mimic realtime vital data
-    setRealtimeVitals();
-    setInterval(setRealtimeVitals, 5000);
+    getRealtimeVitals();
+    setInterval(getRealtimeVitals, 5000);
 
     $("#add-condition").click(function () {
         const condition = $("#condition-name").val();
@@ -102,10 +107,10 @@ $(document).ready(function() {
 // Save patient data to localStorage
 $(window).on('beforeunload', () => {
     let nextPatients = JSON.parse(localStorage.getItem("patients"));
-    nextPatients = patients.map(({ id }, i) => (
+    nextPatients = nextPatients.map(({ id }, i) => (
         id === patient.id 
             ? patient 
-            : patients[i]
+            : nextPatients[i]
     ));
     localStorage.setItem("patients", JSON.stringify(nextPatient));
 });
@@ -115,6 +120,16 @@ function open_xray(){
     var num_xray = Math.floor(Math.random() * 4);
     switch(num_xray){
         case 0:
-            window.open("C:/Users/Brian Scherzo/Desktop/CMSC 437/Project Code/CMSC-437-Project/assets/chest_x.jpeg")
+            window.open("assets/chest_x.jpeg");
+            break;
+        case 1:
+            window.open("assets/hand_x.jpg");
+            break;
+        case 2:
+            window.open("assets/head_x.jpg");
+            break;
+        case 3:
+            window.open("assets/leg_x.jpeg");
+            break;
     }
 }

@@ -7,10 +7,12 @@ const getPatientListItem = ({ id, name }) => (`
             </div>
             <div class="list-item-panel">
                 <div class="heartrate">Heart Rate:</div>
+                <div class="blood-pressure">Blood Pressure:</div>
                 <div class="blood-oxygen">Blood Oxygen Level:</div>
+                <div class="blood-carbondioxide">Blood Carbon Dioxide Level:</div>
             </div>
             <div class="list-item-panel">
-                <button onclick="visitCrisis(${id})">Crisis Response</button>
+                <button onclick="visitCrisis(${id})">Crisis Threshold Settings</button>
             </div>
             <div class="list-item-panel">
                 <button onclick="visitRecords(${id})">View Records</button>
@@ -31,17 +33,34 @@ const visitRecords = patientId => {
     window.location.href = "records_page.html";
 };
 
-const setRealtimeVitals = () => {
-    $(".blood-oxygen").each(function() {
-        const oxygenLevel = (96 + (-2 + Math.random() * 4)).toPrecision(4);
-        $(this).text(`Blood Oxygen Level: ${oxygenLevel}%`);
-    });
-
+const getRealtimeVitals = () => {
+    let patient_counter = 0;    //To keep track of which patient in the list is being updated. Not the best solution but works as long as the patients are rendered in the same order in html
     $(".heartrate").each(function() {
-        const heartRate = 86 + (-10 + Math.round(Math.random() * 20));
+        const heartRate = patients[patient_counter].heartRate;
+        patient_counter++;
         $(this).text(`Heart Rate: ${heartRate} BPM`);
     });
+    patient_counter = 0;
+    $(".blood-pressure").each(function() {
+        const systolic = patients[patient_counter].systolic;
+        const diastolic = patients[patient_counter].diastolic;
+        patient_counter++;
+        $(this).text(`Blood Pressure: ${systolic} mmHg / ${diastolic} mmHg`);
+    });
+    patient_counter = 0;
+    $(".blood-oxygen").each(function() {
+        const oxygenLevel = patients[patient_counter].oxygenLevel;
+        patient_counter++;
+        $(this).text(`Blood Oxygen Level: ${oxygenLevel}%`);
+    });
+    patient_counter = 0;
+    $(".blood-carbondioxide").each(function() {
+        const carbonDioxideLevel = patients[patient_counter].carbonDioxideLevel;
+        patient_counter++;
+        $(this).text(`Blood Carbon Dioxide Level: ${carbonDioxideLevel} mmHg`);
+    });
 };
+
 
 $(document).ready(() => {
     $("#welcome-text").text(`Welcome, ${user.role} ${user.name}`);
@@ -50,6 +69,6 @@ $(document).ready(() => {
         $("#patient-list").append(getPatientListItem(item));
     });
 
-    setRealtimeVitals();
-    setInterval(setRealtimeVitals, 5000);
+    getRealtimeVitals();
+    setInterval(getRealtimeVitals, 500);
 });
